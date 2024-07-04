@@ -97,6 +97,7 @@ class TwilioPhoneConversation(AbstractPhoneConversation[TwilioOutputDevice]):
                 conversation_id=self.id,
                 to_phone_number=self.to_phone,
                 from_phone_number=self.from_phone,
+                agent_id=self.agent_config.id,
             )
         )
         while self.is_active():

@@ -29,6 +29,7 @@ class Event(TypedModel):
 class PhoneCallConnectedEvent(Event, type=EventType.PHONE_CALL_CONNECTED):  # type: ignore
     to_phone_number: str
     from_phone_number: str
+    agent_id: str
 
 
 class PhoneCallEndedEvent(Event, type=EventType.PHONE_CALL_ENDED):  # type: ignore
