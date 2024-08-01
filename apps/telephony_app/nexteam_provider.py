@@ -34,7 +34,6 @@ class NexteamConfigManager(BaseConfigManager):
 
     async def delete_config(self, conversation_id):
         logger.debug(f"Deleting config for {conversation_id}")
-        # await self.redis.delete(conversation_id)
 
     def fetch_agent(self, call_id, config: BaseCallConfig):
         url = os.getenv("NEXTEAM_AGENT_WEBHOOK")
