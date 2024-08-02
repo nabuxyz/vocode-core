@@ -22,6 +22,7 @@ class NexteamConfigManager(BaseConfigManager):
 
         raw_config = self.fetch_agent(conversation_id, config)
         logger.debug(f"raw_config: {raw_config}")
+        raw_config = config.json()
         if raw_config:
             parsed_config = BaseCallConfig.parse_raw(raw_config)
             await self._set_with_one_day_expiration(conversation_id, parsed_config.json())
