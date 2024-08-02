@@ -53,7 +53,7 @@ class NexteamConfigManager(BaseConfigManager):
                     "twilio_sid": config.twilio_sid,
                 },
             }
-            response = requests.get(url, json=payload, headers={"Content-Type": "application/json"})
+            response = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
             response.raise_for_status()
             data = response.text
             return data
