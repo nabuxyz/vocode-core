@@ -21,15 +21,21 @@ class NexteamConfigManager(BaseConfigManager):
         logger.debug(f"Saving config for {conversation_id} with NexteamProvider")
 
         raw_config = self.fetch_agent(conversation_id, config)
+        logger.debug(f"raw_config: {raw_config}")
         if raw_config:
             parsed_config = BaseCallConfig.parse_raw(raw_config)
             await self._set_with_one_day_expiration(conversation_id, parsed_config.json())
+        else:
+            logger.debug(f"raw_config is None")
 
     async def get_config(self, conversation_id) -> Optional[BaseCallConfig]:
         logger.debug(f"Getting config for {conversation_id} with NexteamProvider")
         raw_config = await self.redis.get(conversation_id)  # type: ignore
         if raw_config:
+            logger.debug(f"raw_config: {raw_config}")
             return BaseCallConfig.parse_raw(raw_config)
+        else:
+            logger.debug(f"raw_config is None")
         return None
 
     async def delete_config(self, conversation_id):
