@@ -21,7 +21,7 @@ cd vocode-core/apps/telephony-app
 Change the .env file:
 
 NEXTEAM_AGENT_WEBHOOK=https://dev.nexteam.ai/api/webhooks/vocode
-BASE_URL=URL_IN_ROUTE53 without http:// for example https://dev.nexteam.ai
+BASE_URL=vocode.dev.nexteam.ai - this is the route53 domain we created, ensure there is not https:// in the beginning
 All the other value should b empty.
 
 
